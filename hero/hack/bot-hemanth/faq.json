@@ -1,0 +1,42 @@
+[
+  {
+    "question": "What is ACTMS?",
+    "answer": "ACTMS (Anti-Corruption Tender Management System) is a comprehensive platform designed to ensure transparency and integrity in tender processes. It uses AI-powered analysis to detect suspicious bidding patterns and prevent corruption."
+  },
+  {
+    "question": "How does the anomaly detection work?",
+    "answer": "Our system uses advanced machine learning algorithms, specifically Isolation Forest, to analyze bid submissions. It examines factors like bid amounts, proposal quality, submission timing, and company patterns to identify potentially suspicious activities."
+  },
+  {
+    "question": "What file formats are supported for uploads?",
+    "answer": "The system supports PDF, DOC, DOCX, TXT, and RTF file formats. All files must be under 15MB in size and undergo security validation before being stored."
+  },
+  {
+    "question": "How can I submit a bid?",
+    "answer": "To submit a bid, navigate to the 'Bid Submission' section, select the tender you're interested in, fill out the required information including company details and bid amount, upload your proposal document, and submit. Your bid will be automatically analyzed for compliance."
+  },
+  {
+    "question": "What happens if my bid is flagged as suspicious?",
+    "answer": "If a bid is flagged, it undergoes additional review by administrators. This doesn't mean the bid is invalid - the system may flag bids due to statistical anomalies. You can contact support to provide additional clarification if needed."
+  },
+  {
+    "question": "How is my data protected?",
+    "answer": "We implement multiple security measures including file validation, hash verification, audit logging, and secure data storage. All actions are logged for transparency and accountability."
+  },
+  {
+    "question": "Can I track the status of my bid?",
+    "answer": "Yes, you can view the status of your submitted bids in the dashboard. You'll see information about submission status, any alerts, and the review process."
+  },
+  {
+    "question": "What is the audit log?",
+    "answer": "The audit log tracks all major actions in the system including tender creation, bid submissions, status changes, and alert resolutions. This ensures full transparency and accountability in the tender process."
+  },
+  {
+    "question": "How do I report a problem or get support?",
+    "answer": "You can use this chatbot for immediate assistance, or contact the system administrators through the contact information provided in your tender documentation."
+  },
+  {
+    "question": "What tender information is publicly available?",
+    "answer": "Tender titles, descriptions, departments, estimated values, and deadlines are publicly visible. Bid details and company information are kept confidential and only accessible to authorized personnel."
+  }
+]

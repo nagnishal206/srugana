@@ -1,0 +1,69 @@
+Build a Python Flask backend for the “ACTMS – Anti-Corruption Tender Management System”.
+
+System Requirements:
+	•	The backend must connect with a static HTML + JavaScript frontend (not Streamlit).
+	•	Use SQLite as the database with tables for:
+	•	Tenders (id, title, description, department, estimated_value, deadline, status)
+	•	Bids (id, tender_id, company_name, contact_email, bid_amount, proposal, submitted_at, anomaly_score, is_suspicious)
+	•	Audit Logs (id, entity_type, entity_id, action, timestamp)
+	•	Implement file uploads (PDF, DOC, DOCX, TXT, RTF) with validation and local storage in /uploads.
+	•	Store trained ML models in a /models folder using joblib.
+	•	Include audit logging for all major actions (tender created, bid submitted, alert resolved).
+
+API Endpoints Required (all return JSON for the frontend fetch calls):
+	1.	/api/dashboard → Return system stats (total tenders, total bids, active alerts).
+	2.	/api/tenders
+
+	•	GET → List all tenders.
+	•	POST → Create a new tender (form fields + file).
+
+	3.	/api/bids
+
+	•	GET → List all bids.
+	•	POST → Submit a bid (form fields + file).
+
+	4.	/api/bids/suspicious → Run Isolation Forest anomaly detection on bids and return suspicious ones.
+	5.	/api/alerts
+
+	•	GET → List AI alerts.
+	•	PUT /api/alerts/<id>/resolve → Mark an alert as resolved.
+
+	6.	/api/chat
+
+	•	POST → Take a user message and return an OpenAI GPT-5 response using openai library.
+
+Machine Learning Service:
+	•	Use Isolation Forest from scikit-learn with a contamination threshold of 0.1.
+	•	Features: bid amount, proposal length, company name patterns, submission timing, and simple NLP on proposal text.
+	•	Add /api/model/train to train/retrain on bids, save model to /models.
+	•	Add /api/model/test to return model performance metrics (accuracy on known suspicious bids).
+
+Chatbot Service:
+	•	Integrate with OpenAI GPT API.
+	•	Load system FAQs from a faq.json file and answer using either FAQs or GPT.
+
+Security:
+	•	Validate uploaded files (size ≤ 15MB, correct extension).
+	•	Use hashlib to generate file hashes for integrity.
+	•	Log every action to audit_logs.
+
+Dependencies (requirements.txt):
+
+flask
+flask-cors
+sqlite3
+numpy
+pandas
+scikit-learn
+spacy
+joblib
+openai
+
+Deliverables:
+	•	app.py → Flask entry point, serves index.html and APIs.
+	•	database.py → SQLite + CRUD operations.
+	•	services/ml_service.py → ML anomaly detection.
+	•	services/chatbot_service.py → GPT + FAQ chatbot.
+	•	services/nlp_service.py → spaCy-based tender/bid text processing.
+	•	utils/file_handler.py → File validation, storage, hashing.
+	•	/uploads and /models directories created automatically.
